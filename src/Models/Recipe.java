@@ -8,11 +8,13 @@ public class Recipe {
     private List<Ingredient> ingredients;
     private List<String> instructions;
 
-    public Recipe(String title, List<Ingredient> ingredients, List<String> instructions) {
+    public Recipe(String title) {
         this.title = title;
         this.ingredients = new ArrayList<>();
         this.instructions = new ArrayList<>();
     }
+
+
 
     public String getTitle() {
         return title;

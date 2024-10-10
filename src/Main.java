@@ -1,15 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import Models.Ingredient;
+import Models.Recipe;
+import Models.RecipeCollection;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Skapa recept
+        Recipe breakfastRecipe = new Recipe("Omelett");
+        breakfastRecipe.addIngredient(new Ingredient("Ägg", 3));
+        breakfastRecipe.addIngredient(new Ingredient("Mjölk", 50));
+        breakfastRecipe.addIngredient(new Ingredient("Salt", 1));
+        breakfastRecipe.addInstruction("Vispa ägg och mjölk.");
+        breakfastRecipe.addInstruction("Tillsätt salt.");
+        breakfastRecipe.addInstruction("Stek i panna tills gyllenbrun.");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Recipe dinnerRecipe = new Recipe("Kycklinggryta");
+        dinnerRecipe.addIngredient(new Ingredient("Kyckling", 500));
+        dinnerRecipe.addIngredient(new Ingredient("Grönsaker", 300));
+        dinnerRecipe.addIngredient(new Ingredient("Grädde", 200));
+        dinnerRecipe.addInstruction("Stek kyckling.");
+        dinnerRecipe.addInstruction("Lägg i grönsaker och grädde.");
+        dinnerRecipe.addInstruction("Låt koka tills grönsakerna är mjuka.");
+
+        // Skapa en samling av recept
+        RecipeCollection<Recipe> recipeCollection = new RecipeCollection<>();
+        recipeCollection.addRecipe(breakfastRecipe);
+        recipeCollection.addRecipe(dinnerRecipe);
+
+        // Visa alla recept
+        System.out.println("Alla recept:");
+        for (Recipe recipe : recipeCollection.getRecipes()) {
+            System.out.println(recipe);
+        }
+
+        // Ta bort ett recept (t.ex. middagsreceptet)
+        recipeCollection.removeRecipe(dinnerRecipe);
+
+        // Visa kvarvarande recept
+        System.out.println("\nEfter borttagning:");
+        for (Recipe recipe : recipeCollection.getRecipes()) {
+            System.out.println(recipe);
         }
     }
 }
