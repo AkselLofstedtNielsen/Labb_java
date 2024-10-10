@@ -2,43 +2,43 @@ import Models.Ingredient;
 import Models.Recipe;
 import Models.RecipeCollection;
 
+import java.util.Scanner;
+
 public class Main {
+
+    private static RecipeCollection<Recipe> recipeCollection = new RecipeCollection<>();
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        // Skapa recept
-        Recipe breakfastRecipe = new Recipe("Omelett");
-        breakfastRecipe.addIngredient(new Ingredient("Ägg", 3));
-        breakfastRecipe.addIngredient(new Ingredient("Mjölk", 50));
-        breakfastRecipe.addIngredient(new Ingredient("Salt", 1));
-        breakfastRecipe.addInstruction("Vispa ägg och mjölk.");
-        breakfastRecipe.addInstruction("Tillsätt salt.");
-        breakfastRecipe.addInstruction("Stek i panna tills gyllenbrun.");
 
-        Recipe dinnerRecipe = new Recipe("Kycklinggryta");
-        dinnerRecipe.addIngredient(new Ingredient("Kyckling", 500));
-        dinnerRecipe.addIngredient(new Ingredient("Grönsaker", 300));
-        dinnerRecipe.addIngredient(new Ingredient("Grädde", 200));
-        dinnerRecipe.addInstruction("Stek kyckling.");
-        dinnerRecipe.addInstruction("Lägg i grönsaker och grädde.");
-        dinnerRecipe.addInstruction("Låt koka tills grönsakerna är mjuka.");
 
-        // Skapa en samling av recept
-        RecipeCollection<Recipe> recipeCollection = new RecipeCollection<>();
-        recipeCollection.addRecipe(breakfastRecipe);
-        recipeCollection.addRecipe(dinnerRecipe);
 
-        // Visa alla recept
-        System.out.println("Alla recept:");
-        for (Recipe recipe : recipeCollection.getRecipes()) {
-            System.out.println(recipe);
-        }
-
-        // Ta bort ett recept (t.ex. middagsreceptet)
-        recipeCollection.removeRecipe(dinnerRecipe);
-
-        // Visa kvarvarande recept
-        System.out.println("\nEfter borttagning:");
-        for (Recipe recipe : recipeCollection.getRecipes()) {
-            System.out.println(recipe);
-        }
     }
+
+    private static void printMenu() {
+        System.out.println("\n--- Recept Hantering ---");
+        System.out.println("1. Lägg till recept");
+        System.out.println("2. Visa alla recept");
+        System.out.println("3. Ta bort ett recept");
+        System.out.println("4. Avsluta");
+        System.out.print("Välj ett alternativ: ");
+    }
+
+    private static int getUserChoice () {
+        return 0;
+    }
+
+    private static void addRecipe() {
+
+    }
+
+    private static void viewRecipe() {
+
+    }
+
+    private static void removeRecipe() {
+
+    }
+
+
 }

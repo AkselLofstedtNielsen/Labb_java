@@ -23,9 +23,9 @@ public class ViewRecipeTest {
         // Skapa ett recept och lägg till ingredienser och instruktioner
         Recipe lunchRecipe = new Recipe("Pasta Carbonara");
         lunchRecipe.addIngredient(new Ingredient("Pasta", 200));
-        lunchRecipe.addIngredient(new Ingredient("Bacon", 100));
+        lunchRecipe.addIngredient(new Ingredient("Guanciale", 100));
         lunchRecipe.addInstruction("Koka pastan.");
-        lunchRecipe.addInstruction("Stek bacon.");
+        lunchRecipe.addInstruction("Stek guanciale.");
         recipeCollection.addRecipe(lunchRecipe);
 
         // Hämta och visa receptet
