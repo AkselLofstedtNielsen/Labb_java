@@ -11,7 +11,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-
+        boolean running = true;
+        while (running) {
+            printMenu();
+            int choice = getUserChoice();
+            switch (choice) {
+                case 1:
+                    addRecipe();
+                    break;
+                case 2:
+                    viewRecipe();
+                    break;
+                case 3:
+                    removeRecipe();
+                    break;
+                case 4:
+                    System.out.println("Avslutar programmet...");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Ogiltigt val. Försök igen.");
+            }
+        }
 
     }
 
@@ -24,19 +45,26 @@ public class Main {
         System.out.print("Välj ett alternativ: ");
     }
 
-    private static int getUserChoice () {
-        return 0;
+    private static int getUserChoice() {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Felaktig inmatning! Ange ett nummer.");
+            scanner.next();
+        }
+        return scanner.nextInt();
     }
 
     private static void addRecipe() {
+        //TODO
 
     }
 
     private static void viewRecipe() {
+        //TODO
 
     }
 
     private static void removeRecipe() {
+        //TODO
 
     }
 
