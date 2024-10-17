@@ -2,8 +2,9 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class RecipeCollection<T extends Recipe> {
+public class RecipeCollection<T extends BaseRecipe> {
     private List<T> recipes;
 
     public RecipeCollection() {
@@ -20,5 +21,11 @@ public class RecipeCollection<T extends Recipe> {
 
     public List<T> getRecipes() {
         return recipes;
+    }
+
+    public List<T> getRecipesByType(Class<? extends T> recipeType) {
+        return recipes.stream()
+                .filter(recipeType::isInstance)
+                .collect(Collectors.toList());
     }
 }

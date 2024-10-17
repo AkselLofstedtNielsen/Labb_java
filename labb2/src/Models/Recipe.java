@@ -3,29 +3,19 @@ package Models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recipe {
-    private String title;
+public class Recipe extends BaseRecipe {
     private List<Ingredient> ingredients;
     private List<String> instructions;
 
     public Recipe(String title) {
-        this.title = title;
+        super(title);
         this.ingredients = new ArrayList<>();
         this.instructions = new ArrayList<>();
     }
 
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public List<String> getInstructions() {
-        return instructions;
+    @Override
+    public String getDescription() {
+        return "Ett standardrecept: " + getTitle();
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -39,7 +29,8 @@ public class Recipe {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Recept: ").append(title).append("\n");
+        sb.append("Recept: ").append(getTitle()).append("\n");
+        sb.append("Typ: ").append(getDescription()).append("\n");
         sb.append("Ingredienser:\n");
         for (Ingredient ingredient : ingredients) {
             sb.append("- ").append(ingredient.getName()).append(": ").append(ingredient.getQuantity()).append("\n");
